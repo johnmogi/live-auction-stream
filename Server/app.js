@@ -1,0 +1,10 @@
+const express = require("express");
+const cors = require("cors");
+const productController = require("./controllers/product-controller");
+const bidsController = require("./controllers/bids-controller");
+const server = express();
+server.use(cors());
+server.use(express.json());
+server.use("/api/products", productController);
+server.use("/api/bids", bidsController);
+server.listen(3001, () => console.log("Listening on http://localhost:3001"));
