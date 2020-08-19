@@ -100,18 +100,18 @@ if(this.validateForm() !== true){
   return;
 }
     console.log(this.state.bid);
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //   },
-    //   body: JSON.stringify(this.state.review),
-    // };
-    // fetch("http://localhost:3000/api/ratings", options)
-    //   .then((response) => response.json())
-    //   .then((review) => alert("Review has been added. ID: " + review.id))
-    //   .catch((err) => alert(err.message));
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(this.state.bid),
+    };
+    fetch(API + "bids", options)
+      .then((response) => response.json())
+      .then((bid) => alert("bid has been added. ID: " + this.state.bid.bidID))
+      .catch((err) => alert(err.message));
   };
 
   private setProductID = (args: SyntheticEvent) => {
